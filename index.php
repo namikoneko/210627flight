@@ -1,9 +1,12 @@
 <?php
 ini_set('display_errors', 1);
-require '../libs/flight/Flight.php';
+require_once '../libs/flight/Flight.php';
 require_once './routing.php';
 require_once './functions/tag.php';
 require_once './functions/post.php';
+//require_once '../libs/Michelf/MarkdownExtra.inc.php';
+//use \Michelf\MarkdownExtra;
+//$my_html = MarkdownExtra::defaultTransform($my_text);
 
 //idiormの設定
 require_once '../libs/idiorm.php';
