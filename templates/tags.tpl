@@ -4,15 +4,23 @@
   <button v-on:click="show = !show">open</button>
   <div v-if="show">
   <div class="flex">
+{*
    <form action="taginsexe" method="post">
     <div class="flex">
      tag: <input type="text" name="title">
      <input type="submit" value="send">
     </div>
    </form>
+*}
    <form action="catinsexe" method="post">
     <div class="flex">
-     cat: <input type="text" name="title">
+     inscat: <input type="text" name="title">
+     <input type="submit" value="send">
+    </div>
+   </form>
+   <form action="postfindtags" method="get">
+    <div class="flex">
+     find: <input type="text" name="q">
      <input type="submit" value="send">
     </div>
    </form>

@@ -12,7 +12,7 @@
 <form action="/210622flight/insexeWithCatid" method="post">
   <input type="hidden" name="parentidfield" value="{$updid}">
  <div class="flex">
-  ins: <input type="text" name="title">
+  tagins: <input type="text" name="title">
   <input type="submit" value="send">
  </div>
 </form>

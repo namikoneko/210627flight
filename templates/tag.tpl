@@ -1,11 +1,19 @@
 {extends file="layout.tpl"} 
 {block "body"}
 
-<a href="../tags">return to tags</a>
-<br>
-{$row.title}
-<a href="../tagupd/{$row.id}">update</a>
-<a href="../tagdel/{$row.id}">delete</a>
+<div class="flex gap-2">
+  <a href="../tags">return to tags</a>
+  {$row.title}
+  <a href="../tagupd/{$row.id}">update</a>
+  <a href="../tagdel/{$row.id}">delete</a>
+   <form action="/210622flight/postfindtag/{$row.id}" method="get">
+    <div class="flex">
+     find: <input type="text" name="q">
+     <input type="submit" value="send">
+    </div>
+   </form>
+</div>{*flex*}
+
 <form action="../postinsexe/{$row.id}" method="post">
   <textarea name="text"></textarea>
   <input type="submit" value="send">
@@ -15,6 +23,7 @@
   <a href="../post/{$row.tagid}/{$row.postid}">post</a>
   <a href="../postupd/{$row.tagid}/{$row.postid}">update</a>
   <a href="../postdel/{$row.tagid}/{$row.postid}">delete</a>
+  <a href="/210622flight/postup/{$row.tagid}/{$row.postid}">up</a>
   <br>
 {/foreach}
 

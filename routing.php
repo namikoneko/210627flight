@@ -2,6 +2,9 @@
 
 //routing
 
+Flight::route('/postup/@tagid/@upid', "postup");//
+Flight::route('/postfindtag/@tagid', "postfindtag");//
+Flight::route('/postfindtags', "postfindtags");//
 Flight::route('/tagupdexeCatid/@updid/@catid', "tagupdexeCatid");//
 Flight::route('/tagup/@upid', "tagup");//
 Flight::route('/catup/@upid', "catup");//

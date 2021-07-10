@@ -1,5 +1,20 @@
 <?php
 
+function postup($tagid,$upid){
+ $up = new Up();
+ $up->upexetagfix($tagid,$upid,"post","tag");
+}
+
+function postfindtag($tagid){
+ $find = new Find();
+ $find->postfindtag($tagid,"tag.tpl");
+}
+
+function postfindtags(){
+ $find = new Find();
+ $find->postfind("postfind.tpl");
+}
+
 function post($tagid,$postid){
   $rowpost = ORM::for_table('post')->find_one($postid);
   Flight::view()->assign('rowpost', $rowpost);

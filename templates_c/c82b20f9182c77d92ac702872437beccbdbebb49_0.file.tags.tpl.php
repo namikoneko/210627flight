@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-07-10 07:28:22
+/* Smarty version 3.1.39, created on 2021-07-10 08:28:46
   from '/Library/WebServer/Documents/210622flight/templates/tags.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60e94c16608143_32857359',
+  'unifunc' => 'content_60e95a3edf9cd3_20662603',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c82b20f9182c77d92ac702872437beccbdbebb49' => 
     array (
       0 => '/Library/WebServer/Documents/210622flight/templates/tags.tpl',
-      1 => 1625901942,
+      1 => 1625905723,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60e94c16608143_32857359 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60e95a3edf9cd3_20662603 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_123657154360e94c165efd06_15441520', "body");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_82883963160e95a3ede5c63_58816304', "body");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "body"} */
-class Block_123657154360e94c165efd06_15441520 extends Smarty_Internal_Block
+class Block_82883963160e95a3ede5c63_58816304 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_123657154360e94c165efd06_15441520',
+    0 => 'Block_82883963160e95a3ede5c63_58816304',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -47,15 +47,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
   <button v-on:click="show = !show">open</button>
   <div v-if="show">
   <div class="flex">
-   <form action="taginsexe" method="post">
+   <form action="catinsexe" method="post">
     <div class="flex">
-     tag: <input type="text" name="title">
+     inscat: <input type="text" name="title">
      <input type="submit" value="send">
     </div>
    </form>
-   <form action="catinsexe" method="post">
+   <form action="postfindtags" method="get">
     <div class="flex">
-     cat: <input type="text" name="title">
+     find: <input type="text" name="q">
      <input type="submit" value="send">
     </div>
    </form>

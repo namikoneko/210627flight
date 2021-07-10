@@ -12,6 +12,7 @@ require_once "./functions/insclass.php";
 require_once "./functions/updclass.php";
 require_once "./functions/delclass.php";
 require_once "./functions/upclass.php";
+require_once "./functions/findclass.php";
 
 //idiormの設定
 require_once '../libs/idiorm.php';

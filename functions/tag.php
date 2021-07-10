@@ -1,8 +1,6 @@
 <?php
 use Michelf\MarkdownExtra;
 
-//require_once "upclass.php";
-
 function tagupdexeCatid($updid,$catid){
  $upd = new Upd();
  $upd->updexeParentid($updid,$catid,"tag","tags");
@@ -122,8 +120,8 @@ Flight::view()->display('tags.tpl');
 }
 
 function tag($tagid){
-  $my_text = "### heading";
-  $my_html = MarkdownExtra::defaultTransform($my_text);
+//  $my_text = "### heading";
+//  $my_html = MarkdownExtra::defaultTransform($my_text);
   //echo $my_html;
 //  echo $my_html;
 $sql = <<<EOD
@@ -135,6 +133,7 @@ $sql = <<<EOD
   join post 
   ON map.postid = post.id 
   where tagid = $tagid
+  order by post.updated desc
 EOD;
   $rows = ORM::for_table('post')->raw_query($sql)->find_array();
 //  foreach($rows as $row){
