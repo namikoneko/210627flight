@@ -2,6 +2,13 @@
 
 //routing
 
+Flight::route('/tagup/@upid', "tagup");//
+Flight::route('/catup/@upid', "catup");//
+Flight::route('/catdel/@delid', "catdel");//
+Flight::route('/insexeWithCatid', "insexeWithCatid");//
+Flight::route('/catupdexe', "catupdexe");//
+Flight::route('/catupd/@updid', "catupd");//
+Flight::route('/catinsexe', "catinsexe");//insert
 Flight::route('/tagrm/@tagid/@postid/@tagidcur', "tagrm");//
 Flight::route('/tagaddexe', "tagaddexe");//
 Flight::route('/post/@tagid/@postid', "post");//

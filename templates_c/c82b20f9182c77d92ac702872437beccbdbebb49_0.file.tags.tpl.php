@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-27 02:56:17
+/* Smarty version 3.1.39, created on 2021-07-10 06:47:57
   from '/Library/WebServer/Documents/210622flight/templates/tags.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d7e8d100f845_02144144',
+  'unifunc' => 'content_60e9429df21b38_31646207',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c82b20f9182c77d92ac702872437beccbdbebb49' => 
     array (
       0 => '/Library/WebServer/Documents/210622flight/templates/tags.tpl',
-      1 => 1624761556,
+      1 => 1625899660,
       2 => 'file',
     ),
   ),
@@ -20,52 +20,84 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d7e8d100f845_02144144 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60e9429df21b38_31646207 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_58368602060d7e8d10005a7_67673173', "body");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_98270204660e9429df0b726_80312126', "body");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "body"} */
-class Block_58368602060d7e8d10005a7_67673173 extends Smarty_Internal_Block
+class Block_98270204660e9429df0b726_80312126 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_58368602060d7e8d10005a7_67673173',
+    0 => 'Block_98270204660e9429df0b726_80312126',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <div id="app">
-<button v-on:click="show = !show">open</button>
-<div v-if="show">
-<form action="taginsexe" method="post">
-  <input type="text" name="title">
-  <input type="submit" value="send">
-</form>
-</div>
-<br>
+  <button v-on:click="show = !show">open</button>
+  <div v-if="show">
+  <div class="flex">
+   <form action="taginsexe" method="post">
+    <div class="flex">
+     tag: <input type="text" name="title">
+     <input type="submit" value="send">
+    </div>
+   </form>
+   <form action="catinsexe" method="post">
+    <div class="flex">
+     cat: <input type="text" name="title">
+     <input type="submit" value="send">
+    </div>
+   </form>
+  </div>
+  </div>
+ <br>
   
-  <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['rows']->value, 'row');
-$_smarty_tpl->tpl_vars['row']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['row']->value) {
-$_smarty_tpl->tpl_vars['row']->do_else = false;
-?>
-    <a href="tag/<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['row']->value['title'];?>
+<div class="flex">
+<?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['cnt']->value-1+1 - (0) : 0-($_smarty_tpl->tpl_vars['cnt']->value-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 0, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+ <?php if ($_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['cattitle'] != $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value-1]['cattitle']) {?>
+      <?php if ($_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['cattitle'] == '') {?>
+    </div>    <p>
+      タグなし
+    </p>
+    <div class="flex gap-4">
+   <?php } else { ?>
+    </div>    <p>
+      <?php echo $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['cattitle'];?>
+
+      <a href="/210622flight/catupd/<?php echo $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['catid'];?>
+">update</a>
+      <a href="/210622flight/catup/<?php echo $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['catid'];?>
+">up</a>
+    </p>
+    <div class="flex gap-4">
+  <?php }
+}?>
+  <p>
+    <a href="tag/<?php echo $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['tagid'];?>
+"><?php echo $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['tagtitle'];?>
 </a>
-    <br>
-  <?php
+    <a href="/210622flight/tagup/<?php echo $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['tagid'];?>
+">up</a>
+  </p>
+<?php }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+?>
+</div>
   
 </div>
 

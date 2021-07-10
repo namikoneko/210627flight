@@ -1,12 +1,17 @@
 <?php
 ini_set('display_errors', 1);
 require_once '../libs/flight/Flight.php';
+require_once '../libs/Michelf/MarkdownExtra.inc.php';
+//use Michelf\MarkdownExtra;
 require_once './routing.php';
 require_once './functions/tag.php';
 require_once './functions/post.php';
-//require_once '../libs/Michelf/MarkdownExtra.inc.php';
-//use \Michelf\MarkdownExtra;
+require_once './functions/cat.php';
 //$my_html = MarkdownExtra::defaultTransform($my_text);
+require_once "./functions/insclass.php";
+require_once "./functions/updclass.php";
+require_once "./functions/delclass.php";
+require_once "./functions/upclass.php";
 
 //idiormの設定
 require_once '../libs/idiorm.php';
@@ -36,24 +41,30 @@ function postinsexe($tagid){
 }
 
 function test(){
-echo "tags!";
+//echo "cats!";
 
-  $rows = ORM::for_table('tag')->find_array();
-  //Flight::render('tags', array('rows' => $rows), 'body');
+$sql = <<<EOD
+  SELECT cat.id as catid,cat.title as cattitle,cat.updated as catupdated,
+  tag.id as tagid,tag.title as tagtitle
+  FROM tag
+  left JOIN cat
+  ON cat.id = tag.catid 
+  order by cat.updated desc, tag.updated desc
+EOD;
+//  left JOIN cat
+//  FROM cat 
+//  JOIN tag 
+$rows = ORM::for_table('cat')->raw_query($sql)->find_array();
+//flight::json($rows);
 
-// Assign template data
+$cnt = count($rows);
+//echo $cnt;
 Flight::view()->assign('rows', $rows);
+Flight::view()->assign('cnt', $cnt);
+Flight::view()->display('cats.tpl');
 
-// Display the template
-Flight::view()->display('tags.tpl');
-//Flight::view()->display('child.tpl');
-//Flight::view()->display('parent.tpl');
-//Flight::view()->display('hello.tpl');
-//$list = ["x","y"];
-//Flight::render('post.php', array('list' => $list));
-
-//	$list = orm::for_table('tag')->find_array();
-//	flight::json($list);
+//$rows = ORM::for_table('cat')->join('tag', array('cat.id', '=', 'tag.catid'))->find_array();
+//$rows = ORM::for_table('cat')->join('cat', array('cat.id', '=', 'tag.catid'))->find_many();
 }
 
 Flight::start();

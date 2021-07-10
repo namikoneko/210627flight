@@ -1,5 +1,5 @@
 insert into tag
-(title) 
+(title,catid) 
 values
-("tag1"),
-("tag2");
+("tag-c",2),
+("tag-d",2);

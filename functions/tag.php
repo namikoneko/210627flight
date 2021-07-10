@@ -1,4 +1,25 @@
 <?php
+use Michelf\MarkdownExtra;
+
+//require_once "upclass.php";
+
+function tagup($upid){
+ $up = new Up();
+ $up->upexe($upid,"tag","tags");
+}
+
+function insexeWithCatid(){
+//echo "ins";
+ $ins = new Ins();
+ $ins->insexeWithCatid("tag","catid");
+}
+
+//function insexeWithCatid(){
+////echo "ins";
+// $ins = new Ins();
+// $ins->insexeWithCatid();
+//}
+
 function tagrm($tagid,$postid,$tagidcur){
   $rows_count = ORM::for_table('map')->where("postid",$postid)->count();
   if($rows_count > 1){
@@ -60,24 +81,39 @@ function tagupd($tagid){
 }
 
 function taginsexe(){
-    $result = ORM::for_table('tag')->create();
-    $result->title = Flight::request()->data->title;
-    $result->date = date('Y-m-d');
-    $result->updated = time();
-    $result->save();
+    $row = ORM::for_table('tag')->create();
+    $row->title = Flight::request()->data->title;
+    $row->date = date('Y-m-d');
+    $row->updated = time();
+    $row->save();
     Flight::redirect('/tags');
 }
 
 function tags(){
-  $rows = ORM::for_table('tag')->find_array();
-  Flight::view()->assign('rows', $rows);
-  Flight::view()->display('tags.tpl');
-//  Flight::render('tags', array('rows' => $rows), 'body');
-//  Flight::render('layout');
-  //flight::json($rows);
+$sql = <<<EOD
+  SELECT cat.id as catid,cat.title as cattitle,cat.updated as catupdated,
+  tag.id as tagid,tag.title as tagtitle
+  FROM tag
+  left JOIN cat
+  ON cat.id = tag.catid 
+  order by cat.updated desc, tag.updated desc
+EOD;
+$rows = ORM::for_table('cat')->raw_query($sql)->find_array();
+$cnt = count($rows);
+Flight::view()->assign('rows', $rows);
+Flight::view()->assign('cnt', $cnt);
+Flight::view()->display('tags.tpl');
+
+//  $rows = ORM::for_table('tag')->find_array();
+//  Flight::view()->assign('rows', $rows);
+//  Flight::view()->display('tags.tpl');
 }
 
 function tag($tagid){
+  $my_text = "### heading";
+  $my_html = MarkdownExtra::defaultTransform($my_text);
+  //echo $my_html;
+//  echo $my_html;
 $sql = <<<EOD
   SELECT tag.id as tagid,tag.title as tagtitle,
   post.id as postid,post.title as posttitle,post.text as posttext
@@ -89,6 +125,10 @@ $sql = <<<EOD
   where tagid = $tagid
 EOD;
   $rows = ORM::for_table('post')->raw_query($sql)->find_array();
+//  foreach($rows as $row){
+//  $row["posttext"] = MarkdownExtra::defaultTransform($row["posttext"]);
+//  //$my_html = MarkdownExtra::defaultTransform($my_text);
+//  }
   Flight::view()->assign('rows', $rows);
 
   $row = ORM::for_table('tag')->find_one($tagid);
