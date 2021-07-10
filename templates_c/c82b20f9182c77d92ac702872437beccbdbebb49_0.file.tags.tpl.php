@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-07-10 06:47:57
+/* Smarty version 3.1.39, created on 2021-07-10 07:28:22
   from '/Library/WebServer/Documents/210622flight/templates/tags.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60e9429df21b38_31646207',
+  'unifunc' => 'content_60e94c16608143_32857359',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c82b20f9182c77d92ac702872437beccbdbebb49' => 
     array (
       0 => '/Library/WebServer/Documents/210622flight/templates/tags.tpl',
-      1 => 1625899660,
+      1 => 1625901942,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60e9429df21b38_31646207 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60e94c16608143_32857359 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_98270204660e9429df0b726_80312126', "body");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_123657154360e94c165efd06_15441520', "body");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "body"} */
-class Block_98270204660e9429df0b726_80312126 extends Smarty_Internal_Block
+class Block_123657154360e94c165efd06_15441520 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_98270204660e9429df0b726_80312126',
+    0 => 'Block_123657154360e94c165efd06_15441520',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -85,7 +85,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 ">up</a>
     </p>
     <div class="flex gap-4">
-  <?php }
+   <?php }
 }?>
   <p>
     <a href="tag/<?php echo $_smarty_tpl->tpl_vars['rows']->value[$_smarty_tpl->tpl_vars['i']->value]['tagid'];?>

@@ -7,4 +7,9 @@
   <input type="submit" value="send">
 </form>
 
+{foreach $rows as $row}
+  <a href="/210622flight/tagupdexeCatid/{$tagid}/{$row.id}">{$row.title}</a>
+  <br>
+{/foreach}
+
 {/block}

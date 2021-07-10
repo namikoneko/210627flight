@@ -2,6 +2,13 @@
 
 class Upd{
 
+public function updexeParentid($updid,$catid,$table,$redirect){
+  $row = ORM::for_table($table)->find_one($updid);
+  $row->catid = $catid;
+  $row->save();
+  Flight::redirect('/' . $redirect);
+}
+
 public function updexe($table,$redirect){
   $updid = Flight::request()->data->updid;
   $row = ORM::for_table($table)->find_one($updid);

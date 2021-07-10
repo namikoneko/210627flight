@@ -2,6 +2,7 @@
 
 //routing
 
+Flight::route('/tagupdexeCatid/@updid/@catid', "tagupdexeCatid");//
 Flight::route('/tagup/@upid', "tagup");//
 Flight::route('/catup/@upid', "catup");//
 Flight::route('/catdel/@delid', "catdel");//

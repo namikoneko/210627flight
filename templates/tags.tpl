@@ -39,7 +39,7 @@
       <a href="/210622flight/catup/{$rows[$i].catid}">up</a>
     </p>
     <div class="flex gap-4">
-  {/if}
+   {/if}
 {/if}
   <p>
     <a href="tag/{$rows[$i].tagid}">{$rows[$i].tagtitle}</a>

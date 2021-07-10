@@ -3,6 +3,11 @@ use Michelf\MarkdownExtra;
 
 //require_once "upclass.php";
 
+function tagupdexeCatid($updid,$catid){
+ $upd = new Upd();
+ $upd->updexeParentid($updid,$catid,"tag","tags");
+}
+
 function tagup($upid){
  $up = new Up();
  $up->upexe($upid,"tag","tags");
@@ -75,8 +80,15 @@ function tagupdexe(){
 
 function tagupd($tagid){
   $row = ORM::for_table('tag')->find_one($tagid);
+  if($row->catid != ""){
+    $rows = ORM::for_table('cat')
+    ->where_not_equal('id',$row->catid)->find_many();
+  }else{
+    $rows = ORM::for_table('cat')->find_many();
+  }
   Flight::view()->assign('title', $row->title);
   Flight::view()->assign('tagid', $tagid);
+  Flight::view()->assign('rows', $rows);
   Flight::view()->display('tagupd.tpl');
 }
 
