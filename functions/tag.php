@@ -126,12 +126,15 @@ function tag($tagid){
 //  echo $my_html;
 $sql = <<<EOD
   SELECT tag.id as tagid,tag.title as tagtitle,
-  post.id as postid,post.title as posttitle,post.text as posttext
+  post.id as postid,post.title as posttitle,post.text as posttext,
+  shtn.id as shtnid, shtn.title as shtntitle
   FROM tag 
   JOIN map 
   ON tag.id = map.tagid 
   join post 
   ON map.postid = post.id 
+  left join shtn 
+  ON post.shtnid = shtn.id  
   where tagid = $tagid
   order by post.updated desc
 EOD;
@@ -148,29 +151,6 @@ EOD;
   Flight::view()->display('tag.tpl');
 
 /*
-//$postids = [];
-foreach($rows as $row){
-  $postids[] = $row["postid"];
-}
-//$postrows = ORM::for_table('post')->where_in('id', $postids)->find_array();
-
-  flight::json($postrows);
-
-$sql = <<<EOD
-  SELECT tag.id as tagid,tag.title as tagtitle,
-  post.id as postid,post.title as posttitle,post.text as posttext
-  FROM post 
-  JOIN map 
-  ON post.id = map.tagid 
-  join tag 
-  ON map.tagid = tag.id 
-  where postid = $postid
-EOD;
-  $rows = ORM::for_table('post')->raw_query($sql)->find_array();
 */
-  /*
-  SELECT post.title as posttitle 
-  from post
-  */
 }
 

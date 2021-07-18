@@ -3,7 +3,10 @@
 
 <a href="../../tag/{$rowtag.id}">return to tag</a>
 <br>
+{*
 {$rowtag.title}
+*}
+<a href="/210622flight/tag/{$rowtag.id}">{$rowtag.title}</a>
 <br>
 {$rowpost.text}
 <br>

@@ -1,5 +1,38 @@
 <?php
 
+function postcp($tagid,$postid){
+  $row = ORM::for_table('post')->create();
+  $rowpost = ORM::for_table('post')->find_one($postid);
+  $row->shtnid = $rowpost->shtnid;
+  $row->date = date('Y-m-d');
+  $row->updated = time();
+  $row->save();
+  $row = ORM::for_table('map')->create();//map insert
+  $row->tagid = $tagid;
+  $row->postid = ORM::for_table('post')->max('id');
+  $row->save();
+  Flight::redirect('/tag/' . $tagid);
+}
+
+function postinsexeFromShtn($shtnid){
+ $ins = new Ins();
+ $ins->postexeFromShtn($shtnid);
+}
+
+function postinsexe($tagid){
+    $row = ORM::for_table('post')->create();
+    //$row->title = Flight::request()->data->title;
+    $row->text = Flight::request()->data->text;
+    $row->date = date('Y-m-d');
+    $row->updated = time();
+    $row->save();
+    $row = ORM::for_table('map')->create();//map insert
+    $row->tagid = $tagid;
+    $row->postid = ORM::for_table('post')->max('id');
+    $row->save();
+    Flight::redirect('/tag/' . $tagid);
+}
+
 function postup($tagid,$upid){
  $up = new Up();
  $up->upexetagfix($tagid,$upid,"post","tag");
@@ -40,6 +73,12 @@ EOD;
   Flight::view()->display('post.tpl');
 }
 
+function postdelFromShtn($shtnid,$postid){
+  $row = ORM::for_table('post')->find_one($postid);
+  $row->delete();
+  Flight::redirect('/shtn/' . $shtnid);
+}
+
 function postdel($tagid,$postid){
 //  $rows_count = ORM::for_table('map')->where("tagid",$id)->count();
 //  if($rows_count == 0){//数が0なら削除する
@@ -49,6 +88,15 @@ function postdel($tagid,$postid){
   Flight::redirect('/tag/' . $tagid);
 }
 
+function postupdFromShtnexe(){
+  $shtnid = Flight::request()->data->shtnid;
+  $postid = Flight::request()->data->postid;
+  $row = ORM::for_table('post')->find_one($postid);
+  $row->text = Flight::request()->data->text;
+  $row->save();
+  Flight::redirect('/shtn/' . $shtnid);
+}
+
 function postupdexe(){
   $tagid = Flight::request()->data->tagid;
   $postid = Flight::request()->data->postid;
@@ -56,6 +104,13 @@ function postupdexe(){
   $row->text = Flight::request()->data->text;
   $row->save();
   Flight::redirect('/tag/' . $tagid);
+}
+
+function postupdFromShtn($shtnid,$postid){
+  $row = ORM::for_table('post')->find_one($postid);
+  Flight::view()->assign('row', $row);
+  Flight::view()->assign('shtnid', $shtnid);
+  Flight::view()->display('postupdFromShtn.tpl');
 }
 
 function postupd($tagid,$postid){

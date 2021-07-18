@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-27 11:48:06
+/* Smarty version 3.1.39, created on 2021-07-18 00:44:33
   from '/Library/WebServer/Documents/210622flight/templates/post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d86576110cd7_27939965',
+  'unifunc' => 'content_60f37971837834_82158336',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '30a4c874d41132f74e6b9c826ecf646264327347' => 
     array (
       0 => '/Library/WebServer/Documents/210622flight/templates/post.tpl',
-      1 => 1624794355,
+      1 => 1626569070,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d86576110cd7_27939965 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60f37971837834_82158336 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_149865878060d865760fd8b0_20507386', "body");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_96637059660f37971827027_75497462', "body");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "body"} */
-class Block_149865878060d865760fd8b0_20507386 extends Smarty_Internal_Block
+class Block_96637059660f37971827027_75497462 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'body' => 
   array (
-    0 => 'Block_149865878060d865760fd8b0_20507386',
+    0 => 'Block_96637059660f37971827027_75497462',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -47,8 +47,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 <a href="../../tag/<?php echo $_smarty_tpl->tpl_vars['rowtag']->value['id'];?>
 ">return to tag</a>
 <br>
-<?php echo $_smarty_tpl->tpl_vars['rowtag']->value['title'];?>
-
+<a href="/210622flight/tag/<?php echo $_smarty_tpl->tpl_vars['rowtag']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['rowtag']->value['title'];?>
+</a>
 <br>
 <?php echo $_smarty_tpl->tpl_vars['rowpost']->value['text'];?>
 

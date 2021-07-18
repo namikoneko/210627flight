@@ -1,1 +1,1 @@
-alter table tag add catid integer;
+alter table post add shtnid integer;

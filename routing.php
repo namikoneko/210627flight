@@ -1,7 +1,17 @@
 <?php
 
 //routing
-
+Flight::route('/postdelFromShtn/@shtnid/@postid', "postdelFromShtn");//
+Flight::route('/postupdFromShtnexe', "postupdFromShtnexe");//
+Flight::route('/postupdFromShtn/@shtnid/@postid', "postupdFromShtn");//
+Flight::route('/postcp/@tagid/@postid', "postcp");//
+Flight::route('/postinsexeFromShtn/@shtnid', "postinsexeFromShtn");//
+Flight::route('/shtndel/@shtnid', "shtndel");//
+Flight::route('/shtnupdexe', "shtnupdexe");//
+Flight::route('/shtnupd/@shtnid', "shtnupd");//
+Flight::route('/shtninsexe', "shtninsexe");//insert
+Flight::route('/shtn/@id', "shtn");//read
+Flight::route('/shtns', "shtns");//read
 Flight::route('/postup/@tagid/@upid', "postup");//
 Flight::route('/postfindtag/@tagid', "postfindtag");//
 Flight::route('/postfindtags', "postfindtags");//

@@ -2,7 +2,8 @@
 {block "body"}
 
 <div class="flex gap-2">
-  <a href="../tags">return to tags</a>
+  <a href="/210622flight/tags">return to tags</a>
+  <a href="/210622flight/shtns">return to shtns</a>
   {$row.title}
   <a href="../tagupd/{$row.id}">update</a>
   <a href="../tagdel/{$row.id}">delete</a>
@@ -24,6 +25,9 @@
   <a href="../postupd/{$row.tagid}/{$row.postid}">update</a>
   <a href="../postdel/{$row.tagid}/{$row.postid}">delete</a>
   <a href="/210622flight/postup/{$row.tagid}/{$row.postid}">up</a>
+  
+  <a href="/210622flight/shtn/{$row.shtnid}">{$row.shtntitle}</a>
+  <a href="/210622flight/postcp/{$row.tagid}/{$row.postid}">copy</a>
   <br>
 {/foreach}
 

@@ -7,6 +7,7 @@ require_once './routing.php';
 require_once './functions/tag.php';
 require_once './functions/post.php';
 require_once './functions/cat.php';
+require_once './functions/shtn.php';
 //$my_html = MarkdownExtra::defaultTransform($my_text);
 require_once "./functions/insclass.php";
 require_once "./functions/updclass.php";
@@ -27,19 +28,6 @@ Flight::register('view', 'Smarty', array(), function($smarty){
     $smarty->config_dir = './config/';
     $smarty->cache_dir = './cache/';
 });
-
-function postinsexe($tagid){
-    $row = ORM::for_table('post')->create();
-    //$row->title = Flight::request()->data->title;
-    $row->text = Flight::request()->data->text;
-    $row->date = time();
-    $row->save();
-    $row = ORM::for_table('map')->create();//map insert
-    $row->tagid = $tagid;
-    $row->postid = ORM::for_table('post')->max('id');
-    $row->save();
-    Flight::redirect('/tag/' . $tagid);
-}
 
 function test(){
 //echo "cats!";
