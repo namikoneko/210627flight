@@ -1,6 +1,7 @@
 {extends file="layout.tpl"} 
 {block "body"}
 <div id="app">
+  <a href="/210622flight/shtns">return to shtns</a>
   <button v-on:click="show = !show">open</button>
   <div v-if="show">
   <div class="flex">
@@ -34,19 +35,19 @@
  {if $rows[$i].cattitle != $rows[$i-1].cattitle}
    {*現在の行のcattitleが空白のとき*}
    {if $rows[$i].cattitle == ""}
-    </div>{*flex*}
-    <p>
-      タグなし
-    </p>
-    <div class="flex gap-4">
+      </div>{*flex*}
+      <p>{*cattitle*}
+        カテゴリーなし
+      </p>
+      <div class="flex gap-4">
    {else}
-    </div>{*flex*}
-    <p>
-      {$rows[$i].cattitle}
-      <a href="/210622flight/catupd/{$rows[$i].catid}">update</a>
-      <a href="/210622flight/catup/{$rows[$i].catid}">up</a>
-    </p>
-    <div class="flex gap-4">
+      </div>{*flex*}
+      <p>{*cattitle*}
+        {$rows[$i].cattitle}
+        <a href="/210622flight/catupd/{$rows[$i].catid}">update</a>
+        <a href="/210622flight/catup/{$rows[$i].catid}">up</a>
+      </p>
+      <div class="flex gap-4">
    {/if}
 {/if}
   <p>
